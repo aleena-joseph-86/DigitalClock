@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock-Version 1</title>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+            <span id="hours">00</span>:
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>
+            <span id="indicator">AM</span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        let hours = document.getElementById('hours');
+        let minutes = document.getElementById('minutes');
+        let  seconds = document.getElementById('seconds');
+        let  indicator = document.getElementById('indicator');
+
+       setInterval(()=>{
+
+        let currentTime = new Date();
+
+        indicator = "AM";
+
+        console.log(hours,minutes,seconds,indicator)
+
+        if (hours == 0){
+            hours = 12;
+        }
+
+        if (hours > 12){
+            hours = hours - 12;
+            indicator = 'PM';
+        }
+
+        hours.innerHTML = (currentTime.getHours()<10?'0':'')+ currentTime.getHours();
+        minutes.innerHTML = (currentTime.getMinutes()<10?'0':'')+ currentTime.getMinutes();
+        seconds.innerHTML = (currentTime.getSeconds()<10?'0':'')+ currentTime.getSeconds();
+        indicator.innerHTML = indicator;
+    },1000) 
+    
+    </script>
+</body>
+</html>
