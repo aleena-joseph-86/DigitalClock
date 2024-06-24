@@ -72,7 +72,7 @@ body{
 }
 
 #seconds::after{
-    content: 'SECOND';
+    content: 'SECONDS';
 }
 
 #indicator::after{
